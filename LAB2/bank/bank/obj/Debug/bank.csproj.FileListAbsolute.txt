@@ -1,0 +1,40 @@
+D:\VS\bank\bank\bin\Debug\bank.exe.config
+D:\VS\bank\bank\bin\Debug\bank.exe
+D:\VS\bank\bank\bin\Debug\bank.pdb
+D:\VS\bank\bank\obj\Debug\bank.csproj.AssemblyReference.cache
+D:\VS\bank\bank\obj\Debug\bank.Form1.resources
+D:\VS\bank\bank\obj\Debug\bank.Properties.Resources.resources
+D:\VS\bank\bank\obj\Debug\bank.csproj.GenerateResource.cache
+D:\VS\bank\bank\obj\Debug\bank.csproj.CoreCompileInputs.cache
+D:\VS\bank\bank\obj\Debug\bank.exe
+D:\VS\bank\bank\obj\Debug\bank.pdb
+D:\VS\bank\bank\obj\Debug\bank.Form2.resources
+D:\VS\bank\bank\obj\Debug\bank.Form3.resources
+D:\VS\bank\bank\obj\Debug\bank.Form4.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\bin\Debug\bank.exe.config
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\bin\Debug\bank.exe
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\bin\Debug\bank.pdb
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.Form1.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.Form2.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.Form3.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.Form4.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.Properties.Resources.resources
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.csproj.GenerateResource.cache
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.exe
+C:\Users\User\OneDrive - Manipal Academy of Higher Education\DBMS LAB\LAB2\bank (2)\bank\obj\Debug\bank.pdb
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\bin\Debug\bank.exe.config
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\bin\Debug\bank.exe
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\bin\Debug\bank.pdb
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.csproj.AssemblyReference.cache
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.csproj.SuggestedBindingRedirects.cache
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.Form1.resources
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.Form2.resources
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.Form3.resources
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.Form4.resources
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.Properties.Resources.resources
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.csproj.GenerateResource.cache
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.csproj.CoreCompileInputs.cache
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.exe
+D:\SINDHU\4thSemSindhu\DBMS LAB\LAB2\bank\bank\obj\Debug\bank.pdb

@@ -1,0 +1,75 @@
+2.
+
+set serveroutput on
+create or replace trigger driver_details
+after insert or delete on participated
+for each row
+declare 
+id varchar(30);
+namee varchar(50);
+addrs varchar(100);
+begin
+select driver_id#,name,address into id,namee,addrs
+from person
+where :new.driver_id#=person.driver_id#;
+dbms_output.put_line(' Driver_id = '||id|| CHR(10) ||'  Name:'||namee || CHR(10) ||' Address:'||addrs);
+end;
+/
+
+insert into accident values(20028,to_date('2024-07-15','yyyy-mm-dd'),'Madhavnagar,Bombay');
+insert into PARTICIPATED values('MH-861525476','TN10 BA3004',20028,75000);
+delete from participated where report_number = 20028;
+
+
+3.
+
+create or replace function tot_accidents
+(year in int)
+return int
+as
+countt int;
+begin
+select count(report_number)
+into countt
+from accident
+where extract(year from accd_date)=year;
+return countt;
+end;
+/
+
+select tot_accidents(2024) from dual;
+
+4.
+
+set serveroutput on
+create or replace procedure total_damage
+(driver_id in varchar,year in int) is
+totall int;
+begin 
+select sum(damage_amount) into totall
+ from participated p natural join accident a 
+ where p.driver_id# = driver_id and extract(year from a.accd_date) = year;
+dbms_output.put_line( CHR(10) || 'Total damage caused = '|| totall);
+end;
+/
+
+execute total_damage('KA-764525476',2024);
+
+
+
+5.
+set serveroutput on
+create or replace procedure accident_details(locationn in varchar) IS
+begin
+    for accidentt in 
+	(select * from accident where location = locationn) loop
+        dbms_output.put_line('Report Number: ' || accidentt.report_number || CHR(10) || ', Date: ' || accidentt.accd_date || CHR(10) ||', Location: ' || accidentt.location);
+   end loop;
+end;
+/
+
+execute accident_details('Tiger Circle, Manipal');
+
+
+
+

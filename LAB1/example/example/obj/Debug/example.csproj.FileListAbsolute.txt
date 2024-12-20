@@ -1,0 +1,9 @@
+E:\220953002\LAB1\example\example\bin\Debug\example.exe.config
+E:\220953002\LAB1\example\example\bin\Debug\example.exe
+E:\220953002\LAB1\example\example\bin\Debug\example.pdb
+E:\220953002\LAB1\example\example\obj\Debug\example.csprojResolveAssemblyReference.cache
+E:\220953002\LAB1\example\example\obj\Debug\example.Form1.resources
+E:\220953002\LAB1\example\example\obj\Debug\example.Properties.Resources.resources
+E:\220953002\LAB1\example\example\obj\Debug\example.csproj.GenerateResource.Cache
+E:\220953002\LAB1\example\example\obj\Debug\example.exe
+E:\220953002\LAB1\example\example\obj\Debug\example.pdb

@@ -1,0 +1,85 @@
+create table Person(
+	driver_id# varchar(15),
+	name varchar(20),
+	address varchar(50),
+	primary key(driver_id#)
+);
+
+create table CAR(
+	regno varchar(20),
+	model varchar(30),
+	Year int,
+	primary key(regno)
+);
+
+create table ACCIDENT(
+	report_number int,
+	accd_date date,
+	location varchar(50),
+	primary key(report_number)
+);
+
+create table OWNS(
+	driver_id# varchar(15),
+	regno varchar(20),
+	primary key(driver_id#,regno)
+);
+
+create table PARTICIPATED(
+	driver_id# varchar(15),
+	regno varchar(20),
+	report_number int,
+	damage_amount int,
+	primary key(driver_id#,regno,report_number)
+);
+
+ALTER TABLE Person RENAME TO PERSON;
+
+alter table PARTICIPATED add foreign key(driver_id#) references Person;
+
+alter table PARTICIPATED add foreign key(report_number) references ACCIDENT;
+
+alter table PARTICIPATED add foreign key(regno) references CAR;
+
+alter table OWNS add foreign key(regno) references CAR;
+
+alter table OWNS add foreign key(driver_id#) references Person;
+
+alter table PARTICIPATED add foreign key(driver_id#,regno) references OWNS;
+
+insert into Person values ('10001','John','Sandeep nagar , Udupi');
+insert into Person values ('10002','George','Indira nagar , Bangalore');
+insert into Person values ('10003','Smith','2nd cross , Bridge road');
+insert into Person values ('10004','Adam','Church Street , Mumbai');
+insert into Person values ('10005','Anil','Shivaji nagar , Maharashtra');
+
+insert into CAR values ('KA-21345','Maruti Suzuki Swift','2002');
+insert into CAR values ('MH-45975','Toyota Corolla','2003');
+insert into CAR values ('DL-64789','Nexa','2014');
+insert into CAR values ('KA-72356','Tata Nano','2020');
+insert into CAR values ('KA-85602','Fortuner','2022');
+
+insert into ACCIDENT values (22095,To_date('2023-12-15','yyyy-mm-dd'),'Ashok nagar ,Uudpi');
+insert into ACCIDENT values (22099,To_date('2023-11-10','yyyy-mm-dd'),'vishveshwarayya layout , Maharashtra');
+insert into ACCIDENT values (22097,To_date('2022-02-09','yyyy-mm-dd'),'Lady Hill Road, Shimla');
+insert into ACCIDENT values (22090,To_date('2022-09-01','yyyy-mm-dd'),'Eshwar nagar , Manipal');
+insert into ACCIDENT values (22092,To_date('2020-10-05','yyyy-mm-dd'),'Sahyadri nagar, Mangalore');
+
+insert into OWNS values ('10002','MH-45975');
+insert into OWNS values ('10003','KA-21345');
+insert into OWNS values ('10001','KA-85602');
+insert into OWNS values ('10005','DL-64789');
+insert into OWNS values ('10004','KA-72356');
+
+insert into PARTICIPATED values ('10003','KA-21345',22099, 200000);
+insert into PARTICIPATED values ('10001','KA-85602',22095, 350000);
+insert into PARTICIPATED values ('10005','DL-64789',22097, 400000);
+insert into PARTICIPATED values ('10002','MH-45975',22092, 200000);
+insert into PARTICIPATED values ('10004','KA-72356',22090, 50000);
+
+
+
+
+
+
+

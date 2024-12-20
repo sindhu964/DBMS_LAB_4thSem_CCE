@@ -1,0 +1,96 @@
+create table PERSON(
+	driver_id# varchar(30),
+	name varchar(50),
+	address varchar(100),
+	primary key (driver_id#)
+);
+
+create table CAR(
+	regno varchar(20),
+	model varchar(30),
+	Year int,
+	primary key (regno)
+);
+
+create table ACCIDENT(
+	report_number int,
+	accd_date date,
+	location varchar(50),
+	primary key (report_number)
+);
+
+create table OWNS(
+	driver_id# varchar(30),
+	regno varchar(20),
+	primary key (driver_id#, regno)
+);
+
+create table PARTICIPATED(
+	driver_id# varchar(30),
+	regno varchar(20),
+	report_number int,
+	damage_amount int,
+	primary key (driver_id#,regno,report_number)
+);
+
+alter table PARTICIPATED
+	add foreign key (driver_id#) references PERSON;
+
+alter table PARTICIPATED
+	add foreign key (driver_id#,regno) references OWNS;
+
+alter table PARTICIPATED
+	add foreign key (regno) references CAR;
+
+alter table PARTICIPATED
+	add foreign key (report_number) references ACCIDENT;
+
+insert into PERSON
+values('KA-291088321','Joe','4th cross, Church Road'),
+
+insert into PERSON
+values('MH-314527896','Adam','KHB Colony,Gandhinagar');
+
+insert into PERSON
+values('DL-764525476','Shwetha','Anandpur,Delhi');
+
+insert into PERSON
+values('KA-764525476','Smith','Rajajinagar, Bangalore');
+
+insert into PERSON
+values('MH-861525476','Simran','Sai Colony, Bombay');
+
+select* 
+from PERSON;
+
+alter table PERSON modify
+name varchar(10);
+
+alter table PERSON modify
+driver_id# varchar(15);
+
+alter table PERSON modify
+address varchar(30);
+
+insert into ACCIDENT values(2001,to_date('2024-01-01','yyyy-mm-dd'),'Sahyadri nagar, Srighar');
+insert into ACCIDENT values(20022,to_date('2024-01-01','yyyy-mm-dd'),'Ashok nagar, Anandpur');
+insert into ACCIDENT values(20023,to_date('2024-01-03','yyyy-mm-dd'),'Gandhinagar, Shimla');
+insert into ACCIDENT values(20024,to_date('2024-01-07','yyyy-mm-dd'),'Eshwar nagar, Udupi');
+insert into ACCIDENT values(20025,to_date('2024-01-15','yyyy-mm-dd'),'Tiger Circle, Manipal');
+
+
+select*
+from ACCIDENT;
+
+update ACCIDENT set report_number = 20021 where location = 'Sahyadri nagar, Srighar';
+
+insert into CAR values('KA20 E1234', 'Maruti Suzuki Agnes', 2014);
+insert into CAR values('KA19 MB0999', 'Toyota Corolla', 2003);
+insert into CAR values('MH15 AC6074', 'Maruti Suzuki Swift', 2020);
+insert into CAR values('DL20 E2454', 'Rolls Royce', 2022);
+insert into CAR values('TN10 BA3004', 'Nexa', 2015);
+
+alter table OWNS
+	add foreign key (driver_id#) references PERSON;
+alter table OWNS
+	add foreign key (regno) references CAR;

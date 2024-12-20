@@ -1,0 +1,9 @@
+E:\220953002\LAB1\registration_form\registration_form\bin\Debug\registration_form.exe.config
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.csprojResolveAssemblyReference.cache
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.Form1.resources
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.Properties.Resources.resources
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.csproj.GenerateResource.Cache
+E:\220953002\LAB1\registration_form\registration_form\bin\Debug\registration_form.exe
+E:\220953002\LAB1\registration_form\registration_form\bin\Debug\registration_form.pdb
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.exe
+E:\220953002\LAB1\registration_form\registration_form\obj\Debug\registration_form.pdb

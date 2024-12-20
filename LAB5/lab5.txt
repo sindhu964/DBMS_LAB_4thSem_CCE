@@ -1,0 +1,256 @@
+create table STUDENT(
+	regno varchar(20),
+	name varchar(50),
+	major varchar(20),
+	bdate date,
+	primary key(regno)
+);
+
+create table COURSE(
+	course# int,
+	cname varchar(30),
+	dept varchar(30),
+	primary key(course#)
+);
+
+create table ENROLL(
+	regno varchar(20),
+	course# int,
+	sem int,
+	primary key(regno,course#),
+	foreign key(regno) references STUDENT,
+	foreign key(course#) references COURSE
+);
+
+create table BOOK_ADOPTION(
+	course# int,
+	sem int,
+	book_isbn int,
+	primary key(course#,book_isbn),
+	foreign key(course#) references COURSE
+);
+
+create table TEXT(
+	book_isbn int,
+	booktitle varchar(20),
+	publisher varchar(20),
+	author varchar(20),
+	primary key(book_isbn)
+);
+
+alter table BOOK_ADOPTION
+add foreign key(book_isbn) references TEXT;
+
+alter table ENROLL add book_isbn int;
+
+alter table ENROLL
+add foreign key(book_isbn) references TEXT;
+
+insert into STUDENT values ('220953002','Sindhu','CCE',to_date('2004-06-09','yyyy-mm-dd'));
+insert into STUDENT values ('220953242','Jahnavi','CSE',to_date('2005-04-06','yyyy-mm-dd'));
+insert into STUDENT values ('220953138','Anushri','CSE',to_date('2004-09-23','yyyy-mm-dd'));
+insert into STUDENT values ('220953602','Ajitha','CCE',to_date('2003-03-09','yyyy-mm-dd'));
+insert into STUDENT values ('220953118','Uma','AIML',to_date('2004-01-10','yyyy-mm-dd'));
+
+insert into COURSE values (20021,'DBMS','ICT');
+insert into COURSE values (20031,'FLAT','CSE');
+insert into COURSE values (20022,'OS','ICT');
+insert into COURSE values (20032,'ES','CSE');
+insert into COURSE values (20041,'DBS','CSE');
+insert into COURSE values (20042,'MATH','CSE');
+insert into COURSE values (20033,'SE','ICT');
+insert into COURSE values (20023,'MATH','ICT');
+
+insert into ENROLL values ('220953002',20021,4,1120);
+insert into ENROLL values ('220953002',20022,4,1122);
+insert into ENROLL values ('220953602',20022,4,1123);
+insert into ENROLL values ('220953138',20032,4,1130);
+insert into ENROLL values ('220953242',20033,4,1131);
+insert into ENROLL values ('220953118',20041,4,1140);
+
+
+insert into TEXT values (1120, 'Software Engineering','Roger S. Pressman','Roger S. Pressman');
+insert into TEXT values (1122, 'Database Systems','‎McGraw Hill','‎Silberschatz');
+‎insert into TEXT values (1131, 'Probability','Springer New York','T. Cacoullos');
+insert into TEXT values (1123, 'Data Structures C','Wiley','Adam Drosdek');
+insert into TEXT values (1140, 'Data Structures C++','‎Pearson','Mark Allen Weiss');
+insert into TEXT values (1130, 'Operating Systems','McGraw Hill','‎Silberschatz');
+
+update text
+set publisher = 'Pearson'
+where booktitle = 'Data Structures C++';
+
+update text
+set publisher = 'McGraw Hill'
+where booktitle = 'Database Systems';
+
+update TEXT
+set publisher = 'McGraw Hill'
+where booktitle = 'Data Structures C';
+
+update Text
+set author = 'Silberschatz'
+where booktitle = 'Database Systems';
+
+update Text
+set author = 'Silberschatz'
+where booktitle = 'Operating Systems';
+
+insert into BOOK_ADOPTION values (20021,4,1120);
+insert into BOOK_ADOPTION values (20022,4,1123);
+insert into BOOK_ADOPTION values (20032,4,1130);
+insert into BOOK_ADOPTION values (20033,4,1131);
+insert into BOOK_ADOPTION values (20021,4,1123);
+insert into BOOK_ADOPTION values (20032,4,1131);
+insert into BOOK_ADOPTION values (20022,4,1120);
+
+alter table STUDENT modify
+name varchar(20);
+
+select cname
+from course 
+where  in (select course#)
+
+select distinct cname from
+course , book_adoption
+where course.course# = book_adoption.course#;
+
+
+select c.dept
+from course c
+inner join book_adoption b on b.course# = c.course#
+inner join text t on b.book_isbn = t.book_isbn
+group by c.dept
+having count(publisher)=1;
+
+insert into ENROLL values('220953002',20032,4,1130);
+
+select s.name
+from student s
+inner join enroll e on e.regno = s.regno
+inner join course c on e.course# = c.course#
+group by s.name
+having count(course#)>1;
+
+select s.name 
+from student s
+where (select *
+	from enroll e
+	where e.regno = s.regno and (select *
+						from course c
+						where c.course# = e.course#
+						group by s.name
+						having count(couse#)>1)); 
+
+insert into student values ('22095080','Narayani','CSE', TO_DATE('2003-07-27','yyyy-mm-dd'));
+
+select s.name 
+from student s
+where s.regno not in (select e.regno
+	from enroll e );
+	
+
+
+h.    select s.name
+	from student s
+	where s.regno in (select max(count(e.regno))
+	    		from enroll e
+			group by s.regno);
+
+ OR
+ 
+select s.name
+	from student s
+	where s.regno in (select max(e.regno)
+	    		from enroll e
+			where e.regno in (select count(f.regno)
+							from enroll f));
+
+
+a. select cname,count(course#) as num_of_Text_Books
+    from course natural join book_adoption
+    group by cname
+    having count(course#) > 1;
+
+b. select distinct dept
+from course
+where not exists(
+select *
+from text natural join book_adoption
+where book_adoption.course# = course.course#
+and publisher!='Silberschatz');
+
+
+c. select name
+from student
+where regno in(
+select regno 
+from enroll natural join course
+group by regno
+having count(distinct dept)>1);
+
+insert into student values ('22095080','Narayani','CSE', TO_DATE('2003-07-27','yyyy-mm-dd'));
+
+d. select regno,name
+from student
+where regno not in(
+select regno from enroll);
+
+e.select distinct dept
+    from coursee natural join Book_Adoption
+    where book_isbn not in
+    (select book_isbn
+    from coursee natural join book_adoption join text using(book_isbn)
+    where publisher !='Pearson'
+    );
+f. select booktitle 
+from text
+where book_isbn in
+(
+	select distinct book_isbn
+from book_adoption join enroll using(book_isbn)
+); 
+
+update text
+set publisher = 'McGraw Hill'
+where booktitle = 'Database Systems';
+
+update TEXT
+set publisher = 'McGraw Hill'
+where booktitle = 'Data Structures C';
+
+update Text
+set author = 'Silberschatz'
+where booktitle = 'Database Systems';
+
+update Text
+set author = 'Silberschatz'
+where booktitle = 'Operating Systems';
+
+g.
+select course#,cname 
+from (text natural join book_adoption) join course using(course#)
+where publisher='Pearson'
+group by (course#,cname)
+having count(book_isbn)>=2;
+
+h.
+select regno,name,count(book_isbn)
+from enroll natural join student
+group by regno,name having count(book_isbn)>= all
+(select count(book_isbn)
+from enroll natural join student
+group by regno);
+
+i. 
+select publisher,count(book_isbn)
+from (select * from text)
+group by publisher;
+
+j.
+select distinct regno,name
+from enroll natural join student
+where exists
+(select book_isbn
+from book_adoption
+where book_adoption.course#=enroll.course#);
